@@ -3,6 +3,7 @@ import Main from './blogs/Main';
 import MainSinglePost from './singlepost/MainSinglePost'
 import Authors from './authors/Authors'
 import MainSingleAuthor from './singleAuthor/MainSingleAuthor'
+import MainNewPost from './newpost/MainNewPost'
 import {Switch, Route} from 'react-router-dom'
 import AboutPage from './about/AboutPage';
 import '../App.css';
@@ -15,8 +16,10 @@ class App extends Component {
     <React.Fragment>
         <Header />
         <Switch>
+        
         <Route exact path="/about" component={AboutPage}/>
         <Route exact path="/author" component = {Authors}/>
+        <Route path="/posts/new" component={MainNewPost}/>
         <Route path="/posts/:id" component = {MainSinglePost}/>
         <Route path="/author/:id" component = {MainSingleAuthor}/>
         <Route path="/" component={Main}/>

@@ -1,16 +1,18 @@
 import React from 'react'
- const SinglePostCard = () => {
+ const SinglePostCard = ({data, data1}) => {
+   
+   //console.log(data1);
+   
      return (
         <div className="row">
         <div className="col s12">
           <div className="card blue-grey darken-1">
             <div className="card-content white-text">
-              <span className="card-title center">Single Post</span>
+              <span className="card-title center">{data.title}</span>
               <div className="card-action center ">
-              <a href="#">Author Name</a>
+              <a href="#">{data1.name}</a>
             </div>
-              <p>I am a very simple card. I am good at containing small bits of information.
-              I am convenient because I require little markup to use effectively.</p>
+              <p>{data.body}</p>
             </div>
           </div>
         </div>

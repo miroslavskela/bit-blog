@@ -3,6 +3,9 @@ import { Component } from 'react'
 import SinglePostCard from './SinglePostCard'
 import MoreSinglePosts from './MoreSinglePosts'
 import { postService } from '../../service/PostService'
+import { authorPosts } from '../../service/AuthorPosts'
+import { singlePostService } from '../../service/SinglePostService'
+import { singleAuthorService } from '../../service/SingleAuthorService'
 class MainSinglePost extends Component {
     constructor(props) {
         super(props);
@@ -47,16 +50,18 @@ class MainSinglePost extends Component {
 
 
     componentDidMount() {
-        postService.fetchSinglePost(this.props.match.params.id)
+        singlePostService.fetchSinglePost(this.props.match.params.id)
             .then(post => {
                 this.setState({ post })
 
             })
-        postService.fetchAuthor(this.goodAuthor(this.props.match.params.id))
+
+        singleAuthorService.fetchAuthor(this.goodAuthor(this.props.match.params.id))
             .then(author => {
                 this.setState({ author })
             })
-            postService.fetchUserPosts(this.goodAuthor(this.props.match.params.id))
+
+         authorPosts.fetchUserPosts(this.goodAuthor(this.props.match.params.id))
             .then(userPosts => {
                 this.setState({ posts:userPosts })
             })

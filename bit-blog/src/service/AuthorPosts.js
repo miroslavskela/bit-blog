@@ -2,26 +2,27 @@ import React from 'react';
 import Post from '../entities/Post'
 import Author from '../entities/Author'
 
-class PostService {
+class AuthorPosts {
 
 
-    fetchPosts() {
-        return fetch("https://jsonplaceholder.typicode.com/posts")
+    fetchUserPosts(id) {
+        return fetch(`https://jsonplaceholder.typicode.com/posts?userId=${id}`)
             .then((response) => {
                 return response.json()
 
 
             })
             .then((data) => {
-                const postData = data
-                return postData.map((post) => {
+                const userPostData = data
+                return userPostData.map((post) => {
                     return new Post(post)
                 })
 
             })
     }
-   
+
+    
 }
 
 
-export const postService = new PostService()
+export const authorPosts = new AuthorPosts()

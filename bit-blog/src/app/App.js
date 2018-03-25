@@ -33,8 +33,8 @@ componentDidMount(){
         <Route exact path="/about" component={AboutPage}/>
         <Route exact path="/author" component = {Authors}/>
         <Route path="/posts/new" component={MainNewPost}/>
-        <Route path="/posts/:id" component = {MainSinglePost}/>
-        <Route path="/author/:id" component = {MainSingleAuthor}/>
+        <Route path={`/posts/:id`} component = {MainSinglePost}/>
+        <Route path={`/author/:id`} component = {MainSingleAuthor}/>
         <Main data={this.state.posts}/>
         </Switch>
         <Footer />

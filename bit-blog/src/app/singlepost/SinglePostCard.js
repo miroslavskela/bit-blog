@@ -1,6 +1,6 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
  const SinglePostCard = ({data, data1}) => {
-   
    //console.log(data1);
    
      return (
@@ -10,7 +10,7 @@ import React from 'react'
             <div className="card-content white-text">
               <span className="card-title center">{data.title}</span>
               <div className="card-action center ">
-              <a href="#">{data1.name}</a>
+              <Link to={`/author/${data1.id}`}><h6>{data1.name}</h6></Link>
             </div>
               <p>{data.body}</p>
             </div>

@@ -30,7 +30,7 @@ class PostService {
 
             })
     }
-    fetchAuthors(id) {
+    fetchAuthor(id) {
         return fetch(`https://jsonplaceholder.typicode.com/users/${id}`)
             .then((response) => {
                 return response.json();    
@@ -38,6 +38,37 @@ class PostService {
             .then((author) => {
                
                     return new Author(author)
+                })
+               
+
+            
+    }
+    fetchUserPosts(id) {
+        return fetch(`https://jsonplaceholder.typicode.com/posts?userId=${id}`)
+            .then((response) => {
+                return response.json()
+
+
+            })
+            .then((data) => {
+                const userPostData = data
+                return userPostData.map((post) => {
+                    return new Post(post)
+                })
+
+            })
+    }
+
+    fetchAuthors() {
+        return fetch(`https://jsonplaceholder.typicode.com/users`)
+            .then((response) => {
+                return response.json();    
+            })
+            .then((data) => {
+                const authorData = data
+                return authorData.map((author) => {
+                    return new Author(author)
+                })
                 })
                
 

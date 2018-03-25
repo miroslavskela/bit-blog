@@ -1,6 +1,8 @@
 import React from 'react';
+import MainSingleAuthor from './MainSingleAuthor'
 
-const AuthorCard = () => {
+const AuthorCard = ({data}) => {
+console.log(data);
 
     return (
         <div className="col s12 ">
@@ -10,10 +12,10 @@ const AuthorCard = () => {
           </div>
           <div className="card-stacked">
             <div className="card-content">
-              <h2>Name Surname</h2>
-              <p>username:<b>my_cool_username</b></p>
-              <p>email:<b>my_cool@email.com</b></p>
-              <p>phone:<b>1-770-736-8031</b></p>
+              <h2>{data.name}</h2>
+              <p>username:<b>{data.username}</b></p>
+              <p>email:<b>{data.email}</b></p>
+              <p>phone:<b>{data.phone}</b></p>
 
             </div>
             

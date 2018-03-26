@@ -5,23 +5,23 @@ import Author from '../entities/Author'
 class SingleAuthorService {
 
 
-   
+
     fetchAuthor(id) {
         return fetch(`https://jsonplaceholder.typicode.com/users/${id}`)
             .then((response) => {
-                return response.json();    
+                return response.json();
             })
             .then((author) => {
-               
-                    return new Author(author)
-                })
-               
 
-            
+                return new Author(author)
+            })
+
+
+
     }
-    
 
-  
+
+
 }
 
 
